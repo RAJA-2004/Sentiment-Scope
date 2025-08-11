@@ -21,7 +21,7 @@
    </div>
    <br>
    <div>
-     <img src="static/landing.png" alt="Sentiment Scope Demo Screenshot" width="800" />
+     <img src="static/landing_page.png" alt="Sentiment Scope Demo Screenshot" width="800" />
    </div>
 </div>
 
