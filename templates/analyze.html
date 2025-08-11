@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze - Sentiment Scope</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='analyze.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>Sentiment Scope</span>
+            </a>
+            <a href="/" class="btn btn-outline">
+                <i class="fas fa-home"></i>
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header -->
+            <div class="page-header">
+                <h1>
+                    <i class="fas fa-chart-line"></i>
+                    Sentiment Analysis
+                </h1>
+                <p>Enter your text below and analyze the sentiment in real-time</p>
+            </div>
+
+            <!-- Analysis Card -->
+            <div class="analysis-card">
+                <div class="input-section">
+                    <label for="textInput" class="input-label">
+                        <i class="fas fa-edit"></i>
+                        Enter your text for analysis
+                    </label>
+                    <div class="textarea-container">
+                        <textarea 
+                            id="textInput" 
+                            placeholder="Type or paste your text here... (e.g., 'I love this product!', 'This service is terrible')"
+                            maxlength="1000"
+                        ></textarea>
+                        <div class="character-counter">
+                            <span id="charCount">0</span>/1000 characters
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-section">
+                    <button id="analyzeBtn" class="btn btn-primary">
+                        <span class="btn-content">
+                            <i class="fas fa-brain"></i>
+                            Analyze Sentiment
+                        </span>
+                        <div class="loading-content">
+                            <div class="spinner"></div>
+                            Processing...
+                        </div>
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                        <i class="fas fa-refresh"></i>
+                        Clear
+                    </button>
+                </div>
+
+                <!-- Result Section -->
+                <div id="resultSection" class="result-section hidden">
+                    <div class="result-header">
+                        <i class="fas fa-chart-bar"></i>
+                        Analysis Result
+                    </div>
+                    <div id="resultContent" class="result-content">
+                        <!-- Result will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Texts -->
+            <div class="samples-section">
+                <h3>
+                    <i class="fas fa-lightbulb"></i>
+                    Try these examples
+                </h3>
+                <div class="sample-grid">
+                    <div class="sample-card positive" data-text="I absolutely love this product! It's amazing and works perfectly.">
+                        <div class="sample-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <div class="sample-content">
+                            <h4>Positive Example</h4>
+                            <p>"I absolutely love this product! It's amazing and works perfectly."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="sample-card negative" data-text="This service is terrible and I'm very disappointed with the quality.">
+                        <div class="sample-icon">
+                            <i class="fas fa-frown"></i>
+                        </div>
+                        <div class="sample-content">
+                            <h4>Negative Example</h4>
+                            <p>"This service is terrible and I'm very disappointed with the quality."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="sample-card neutral" data-text="The movie was okay, not great but not bad either.">
+                        <div class="sample-icon">
+                            <i class="fas fa-meh"></i>
+                        </div>
+                        <div class="sample-content">
+                            <h4>Mixed Example</h4>
+                            <p>"The movie was okay, not great but not bad either."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Info -->
+            <div class="features-info">
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Real-time Analysis</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Privacy Protected</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Confidence Scores</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="{{ url_for('static', filename='analyze.js') }}"></script>
+</body>
+</html>
